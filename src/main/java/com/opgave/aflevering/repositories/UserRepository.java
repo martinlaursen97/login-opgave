@@ -6,9 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Repository
 public class UserRepository {
@@ -30,8 +27,10 @@ public class UserRepository {
         ResultSet resultSet = getResultSet(query);
 
         try {
+
             resultSet.next();
             return resultSet.getInt(1);
+
         } catch(SQLException e){
             e.printStackTrace();
         } finally {

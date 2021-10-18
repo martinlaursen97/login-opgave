@@ -17,7 +17,9 @@ public class UserService {
     }
 
     public void addNewUser(User user) {
-        userRepository.addNewUser(user);
+        if (!isPresent(user.getUsername())) {
+            userRepository.addNewUser(user);
+        }
     }
 
     public boolean isPresent(String username) {

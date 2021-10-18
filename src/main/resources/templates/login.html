@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Login</title>
 </head>
-<body>
 
-</body>
-</html>
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height:100vh">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <form action="" autocomplete="off">
+                        <div class="form-group">
+                            <input type="text" class="form-control" th:field="*{username}">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" th:field="*{password}">
+                        </div>
+                        <button type="button" id="sendlogin" class="btn btn-primary">login</button>
+                        <button type="button" id="register" class="btn btn-primary">register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
