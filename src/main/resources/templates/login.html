@@ -1,28 +1,17 @@
+<!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+<body>
 
-<div class="container">
-    <div class="row justify-content-center align-items-center" style="height:100vh">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <form action="" autocomplete="off">
-                        <div class="form-group">
-                            <input type="text" class="form-control" th:field="*{username}">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" th:field="*{password}">
-                        </div>
-                        <button type="button" id="sendlogin" class="btn btn-primary">login</button>
-                        <button type="button" id="register" class="btn btn-primary">register</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<form action="#" th:action="@{/verify}" th:object="${user}" method="GET">
+    username: <input type="text" name="username" th:field="*{username}"/><br>
+    password: <input type="text" name="password" th:field="*{password}"/><br>
+    <button name="login" type="submit" value="0">Login</button>
+    <button name="register" type="submit" value="0">Register</button>
+</form>
+
+</body>
+</html>

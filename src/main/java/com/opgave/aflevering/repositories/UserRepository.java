@@ -27,7 +27,6 @@ public class UserRepository {
         ResultSet resultSet = getResultSet(query);
 
         try {
-
             resultSet.next();
             return resultSet.getInt(1);
 
@@ -43,11 +42,6 @@ public class UserRepository {
         return 0;
     }
 
-    public boolean isPresent(String username) {
-        String query = "SELECT EXISTS(SELECT 1 FROM users WHERE username = '" + username + "')";
-        return getInt(query) == 1;
-    }
-
     private ResultSet getResultSet(String query) {
         Connection connection = DBManager.getConnection();
         PreparedStatement preparedStatement;
@@ -61,5 +55,17 @@ public class UserRepository {
         }
 
         return resultSet;
+    }
+
+    public boolean isPresent(String username) {
+        String query = "SELECT EXISTS(SELECT 1 FROM users WHERE username = '" + username + "')";
+        return getInt(query) == 1;
+    }
+
+    public boolean correctDetails(User user) {
+        String query = "SELECT EXISTS(SELECT 1 FROM users WHERE username = '"
+                + user.getUsername() + "' AND password = '"
+                + user.getPassword() + "')";
+        return getInt(query) == 1;
     }
 }

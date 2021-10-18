@@ -25,4 +25,8 @@ public class UserService {
     public boolean isPresent(String username) {
         return userRepository.isPresent(username);
     }
+
+    public boolean correctDetails(User user) {
+        return userRepository.correctDetails(user);
+    }
 }
