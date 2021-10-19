@@ -25,10 +25,11 @@ public class UserRepository {
 
     public int getInt(String query) {
         ResultSet resultSet = getResultSet(query);
+        int n = 0;
 
         try {
             resultSet.next();
-            return resultSet.getInt(1);
+            n = resultSet.getInt(1);
 
         } catch(SQLException e){
             e.printStackTrace();
@@ -39,7 +40,7 @@ public class UserRepository {
                 e.printStackTrace();
             }
         }
-        return 0;
+        return n;
     }
 
     private ResultSet getResultSet(String query) {
