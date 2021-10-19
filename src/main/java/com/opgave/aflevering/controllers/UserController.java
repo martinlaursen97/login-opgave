@@ -16,6 +16,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/login";
+    }
+
     @RequestMapping("/login")
     public String login(Model model) {
         model.addAttribute("user", new User());
@@ -23,8 +28,9 @@ public class UserController {
     }
 
     @RequestMapping("/verify")
-    public String verify(User user) {
+    public String verify(User user, Model model) {
         if (userService.correctDetails(user)) {
+            model.addAttribute("user", user);
             return "index";
         }
         return "login";
@@ -32,7 +38,6 @@ public class UserController {
 
     @RequestMapping("/registerVerify")
     public String registerVerify(User user) {
-        System.out.println(user);
         if (!userService.isPresent(user.getUsername())) {
             userService.addNewUser(user);
             return "success";

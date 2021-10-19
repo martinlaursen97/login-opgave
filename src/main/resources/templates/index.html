@@ -2,11 +2,22 @@
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Success</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
-You made it..
-
-</body>
-</html>
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height:100vh">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    Welcome to the site,
+                   <p th:text="${user.getUsername()}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
