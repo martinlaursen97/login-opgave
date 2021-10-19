@@ -5,7 +5,6 @@ import com.opgave.aflevering.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,9 +18,6 @@ public class UserService {
     }
 
     public void addNewUser(User user) {
-        if (usernameTaken(user)) {
-            throw new IllegalStateException("Username Taken");
-        }
         userRepository.save(user);
     }
 
