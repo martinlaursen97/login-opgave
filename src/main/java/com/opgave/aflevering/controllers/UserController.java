@@ -46,7 +46,7 @@ public class UserController {
         return "register";
     }
 
-    @PostMapping("/register")
+    @RequestMapping("/register")
     public String register(Model model) {
         model.addAttribute("user", new User());
         return "register";
