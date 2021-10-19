@@ -16,6 +16,13 @@
                 <div class="card-body">
                     Welcome to the site,
                    <p th:text="${user.getUsername()}"></p>
+                    <table>
+                        <tbody>
+                            <tr th:each="user: ${users}">
+                                <td th:text="${user.getUsername()}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

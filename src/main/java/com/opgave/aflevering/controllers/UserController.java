@@ -31,6 +31,7 @@ public class UserController {
     public String verify(User user, Model model) {
         if (userService.correctDetails(user)) {
             model.addAttribute("user", user);
+            model.addAttribute("users", userService.fetchAllUsers());
             return "index";
         }
         return "login";
@@ -38,14 +39,14 @@ public class UserController {
 
     @RequestMapping("/registerVerify")
     public String registerVerify(User user) {
-        if (!userService.isPresent(user.getUsername())) {
+        if (!userService.usernameTaken(user)) {
             userService.addNewUser(user);
             return "success";
         }
         return "register";
     }
 
-    @RequestMapping("/register")
+    @PostMapping("/register")
     public String register(Model model) {
         model.addAttribute("user", new User());
         return "register";

@@ -5,6 +5,10 @@ import com.opgave.aflevering.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -15,16 +19,23 @@ public class UserService {
     }
 
     public void addNewUser(User user) {
-        if (!isPresent(user.getUsername())) {
-            userRepository.addNewUser(user);
+        if (usernameTaken(user)) {
+            throw new IllegalStateException("Username Taken");
         }
+        userRepository.save(user);
     }
 
-    public boolean isPresent(String username) {
-        return userRepository.isPresent(username);
+    public boolean usernameTaken(User user) {
+        Optional<User> userOptional = userRepository.findUserByName(user.getUsername());
+        return userOptional.isPresent();
     }
 
     public boolean correctDetails(User user) {
-        return userRepository.correctDetails(user);
+        Optional<User> userOptional = userRepository.findUserByNameAndPassword(user.getUsername(), user.getPassword());
+        return userOptional.isPresent();
+    }
+
+    public List<User> fetchAllUsers() {
+        return userRepository.findAll();
     }
 }
