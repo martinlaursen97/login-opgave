@@ -7,6 +7,11 @@ Man kan altid tilgå hovedsiden, hvor det skal være muligt at logge ind med bru
 
 Disse informationer gemmes i en tabel i MySQL (plain text ).
 
+##How to use
+1. Create and connect to MySql database.
+2. Create table of users (AI int id, string username, string password).
+3. Change path, user, password in resources/application.properties to match your own.
+
 ## Contributing to UI Projekt
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
