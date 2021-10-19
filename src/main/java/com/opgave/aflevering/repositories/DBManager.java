@@ -16,7 +16,7 @@ public class DBManager {
 
     public static Connection getConnection(){
         if (connection != null) return connection;
-        try (InputStream input = new FileInputStream("C:\\Users\\Snab\\IdeaProjects\\login-opgave\\src\\main\\resources\\application.properties")) {
+        try (InputStream input = new FileInputStream("src/main/resources/application.properties")) {
             Properties properties = new Properties();
             properties.load(input);
             url = properties.getProperty("url");
