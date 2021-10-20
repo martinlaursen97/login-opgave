@@ -14,7 +14,7 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-body">
-                    <form action="#" th:action="@{/verify}" th:object="${user}" method="GET">
+                    <form action="#" th:action="@{/loginVerify}" th:object="${user}" method="GET">
                         <div class="form-group">
                             <input type="text" name="username" th:field="*{username}"/><br>
                         </div>
